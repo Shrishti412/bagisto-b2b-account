@@ -1,51 +1,40 @@
-# 🏢 Bagisto Users & Roles Module
+# Bagisto Users & Roles Module
 
-Enhance your Bagisto storefront with advanced B2B account management capabilities. This module enables business customers to create sub-users (employees/staff) within their company account and assign them custom roles with detailed permissions — all without modifying core files.
-
----
-
-## 📖 Introduction
-
-The **Bagisto Users & Roles Module** transforms a standard Bagisto store into a structured B2B platform.
-
-It allows:
-
-- Company-level employee management  
-- Custom role creation  
-- Granular permission assignment  
-- Dynamic nested access-control tree  
-
-The module is fully decoupled from the Bagisto core, ensuring safe upgrades and seamless compatibility with Bagisto 2.x (Tailwind CSS-based UI).
+**Bagisto Version**  
+**PHP Version**
 
 ---
 
-## ✨ Features
+## Introduction
 
-### ✅ Company Users Management
-- Add multiple employees under a company account  
-- Edit and manage sub-users anytime  
-- Assign roles for controlled access  
+The Bagisto Users & Roles Module enhances a standard Bagisto storefront by adding structured B2B account management capabilities. It enables registered business customers to create sub-users (employees or staff members) under their main account and assign them precise roles and permissions through a dynamic, nested access-control system.
 
-### ✅ Roles & Permissions
-- Create unlimited custom roles  
-- Choose **All Access** or specific permissions  
-- Interactive nested permission tree  
-
-### ✅ Seamless UI Integration
-- Native-looking sidebar menu integration  
-- Fully responsive frontend  
-- Consistent Tailwind-based design  
-
-### ✅ Isolated Architecture
-- Built using Konekt Concord contracts & proxies  
-- No core file modifications  
-- Upgrade-safe implementation  
+The module is completely decoupled from the Bagisto core, ensuring safe upgrades while preserving the modern Tailwind CSS design used in Bagisto 2.x.
 
 ---
 
-## ⚙️ Requirements
+## Features
 
-Ensure your environment meets the following:
+### Company Users Management
+Allows business customers to create, update, and manage multiple sub-users within their primary company account.
+
+### Roles & Permissions
+Create custom roles with fine-grained access control using an interactive, nested permissions tree.
+
+### Seamless UI Integration
+Adds native-style menu items directly into the Bagisto Customer Profile sidebar for a consistent user experience.
+
+### Tailwind & Blade Components
+Built entirely with Bagisto’s native Blade and Tailwind components to ensure a responsive and uniform frontend interface.
+
+### Isolated Architecture
+Implements Konekt Concord contracts and proxies to maintain complete separation from core files and guarantee upgrade safety.
+
+---
+
+## Requirements
+
+Ensure your environment meets the following requirements before installation:
 
 - **Bagisto:** v2.3.x or higher  
 - **PHP:** ^8.2 or higher  
@@ -53,15 +42,13 @@ Ensure your environment meets the following:
 
 ---
 
-## 🚀 Installation Guide
+## Installation Guide
 
-Follow these steps to install the module into your Bagisto application.
+Follow the steps below to install the module in your existing Bagisto application.
 
----
+### Step 1: Link the Repository
 
-### Step 1: Add Repository
-
-Open your main `composer.json` file and add the repository inside the `"repositories"` array:
+Open the `composer.json` file located in your Bagisto root directory. Add the following entry to the `"repositories"` array:
 
 ```json
 "repositories": [
@@ -72,13 +59,13 @@ Open your main `composer.json` file and add the repository inside the `"reposito
 ]
 ```
 
-> Replace `YOUR-USERNAME` with your actual GitHub username.
+Replace `YOUR-USERNAME` with your actual GitHub username.
 
 ---
 
 ### Step 2: Require the Package
 
-Run the following command from your Bagisto root directory:
+Run the following command in your terminal from the Bagisto root directory:
 
 ```bash
 composer require acme/b2b-account:dev-main
@@ -88,13 +75,13 @@ composer require acme/b2b-account:dev-main
 
 ### Step 3: Register the Service Provider
 
-Open:
+Open the file:
 
 ```
 bootstrap/providers.php
 ```
 
-Add the Service Provider to the returned array:
+Add the following Service Provider to the end of the returned array:
 
 ```php
 return [
@@ -105,89 +92,30 @@ return [
 
 ---
 
-### Step 4: Run Installation Command
+### Step 4: Run the Installation Command
 
-Execute the custom Artisan command:
+Execute the Artisan command provided by the package:
 
 ```bash
 php artisan b2b-account:install
 ```
 
-This command will:
-
-- Run database migrations  
-- Publish required resources  
-- Clear application cache  
+This command will automatically run the necessary database migrations and clear the application cache.
 
 ---
 
-## 🎉 Installation Complete
-
-Log in to your Bagisto storefront as a customer and navigate to your profile section.
-
-You will now see:
-
-- **Company Users**
-- **Roles & Permissions**
-
-added to the sidebar.
+After completing these steps, log in to your Bagisto storefront as a customer and navigate to your profile section. You will find the new **"Company Users"** and **"Roles & Permissions"** tabs available in the sidebar.
 
 ---
 
-## 🛠️ Usage Guide
+## Usage
 
-### 🔹 Create a Role
+### Create a Role
 
-1. Navigate to **Roles & Permissions**  
-2. Click **Add Role**  
-3. Select:
-   - **All Access**, or  
-   - Choose specific permissions from the access tree  
-4. Save the role  
+Go to **Roles & Permissions → Add Role**.  
+Select either **"All Access"** or manually choose specific permissions from the custom access-control tree.
 
----
+### Create a User
 
-### 🔹 Create a Company User
-
-1. Navigate to **Company Users**  
-2. Click **Add User**  
-3. Enter employee details  
-4. Assign a role  
-5. Save  
-
-The system automatically generates a secure password for the user.
-
----
-
-## 📦 Module Architecture
-
-- Modular package structure  
-- Concord-based contracts & proxies  
-- Blade + Tailwind UI components  
-- Fully decoupled from Bagisto core  
-
----
-
-## 🧩 Troubleshooting
-
-If you encounter issues:
-
-Run:
-
-```bash
-composer dump-autoload
-```
-
-Then clear cache:
-
-```bash
-php artisan optimize:clear
-```
-
-Also verify your PHP and Bagisto versions meet the requirements.
-
----
-
-## 📄 License
-
-This module is open-source and available under the MIT License.
+Navigate to **Company Users → Add User**.  
+Enter the employee’s information, assign the appropriate role, and save. A secure password will be automatically generated for the new user.
